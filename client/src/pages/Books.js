@@ -13,6 +13,19 @@ function Books() {
   const [formObject, setFormObject] = useState({})
 
 
+    // displayResponse = data => {
+    //     this.setBooks({ books: data.items})
+    // }
+
+    // searchBooks = () => {
+    //     API.searchBooks(books)
+    //       .then(res => {
+    //           this.displayResponse(res.data)
+    //       })
+    //       .catch(err => console.log(err));
+    //   }
+      
+   
 
 
   // Deletes a book from the database with a given id, then reloads books from the db
@@ -46,7 +59,7 @@ function Books() {
         <Row>
           <Col size="md-6">
             <Jumbotron>
-              <h1>What Books Should I Search?</h1>
+              <h1>Search for your favorite books</h1>
             </Jumbotron>
             <form>
               <Input
@@ -55,9 +68,7 @@ function Books() {
                 placeholder="Title (required)"
               />
               <FormBtn
-               
-                onClick={handleFormSubmit}
-              >
+                onClick={handleFormSubmit}>
                 Submit Book
               </FormBtn>
             </form>
@@ -82,17 +93,16 @@ function Books() {
                         <p>
                         {book.volumeInfo.description}
                         </p>
-                        <img alt={book.volumeInfo.imageLinks.smallThumbnail}>
-                        </img>
+                        <img src={book.volumeInfo.imageLinks.thumbnail} alt="book cover image" height={200} width={175}/>
+                        
                         <a href={book.volumeInfo.selfLink}>
+                          Go to book
                         </a>
                         <p>
                         {book.volumeInfo.id}
                         </p>
-                          
                     </div>
                     <Link to={"/books/" + book._id}>
-                     
                      
                     </Link>
                     {/* <DeleteBtn onClick={() => deleteBook(book._id)} /> */}
