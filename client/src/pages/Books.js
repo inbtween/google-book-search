@@ -13,28 +13,6 @@ function Books() {
   const [formObject, setFormObject] = useState({})
 
 
-    // displayResponse = data => {
-    //     this.setBooks({ books: data.items})
-    // }
-
-    // searchBooks = () => {
-    //     API.searchBooks(books)
-    //       .then(res => {
-    //           this.displayResponse(res.data)
-    //       })
-    //       .catch(err => console.log(err));
-    //   }
-      
-   
-
-
-  // Deletes a book from the database with a given id, then reloads books from the db
-  // function deleteBook(id) {
-  //   API.deleteBook(id)
-  //     .then(res => loadBooks())
-  //     .catch(err => console.log(err));
-  // }
-
   // Handles updating component state when the user types into the input field
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -93,9 +71,9 @@ function Books() {
                         <p>
                         {book.volumeInfo.description}
                         </p>
-                        <img src={book.volumeInfo.imageLinks.thumbnail} alt="book cover image" height={200} width={175}/>
+                        <img src={book.volumeInfo.imageLinks?.thumbnail} alt="book cover image" height={200} width={150}/>
                         
-                        <a href={book.volumeInfo.selfLink}>
+                        <a href={book.volumeInfo.infoLink}>
                           Go to book
                         </a>
                         <p>
@@ -115,6 +93,7 @@ function Books() {
           </Col>
         </Row>
       </Container>
+      
     );
   }
 
